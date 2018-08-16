@@ -1,0 +1,16 @@
+<h3><%= @category.name %></h3>
+<br>
+
+<% @questions.each do |question|  %>
+    <%= question.word %>
+    <% question.answers.each do |answer| %>
+        <% if (answer.correct == true) %>
+            <%= answer.mean %>
+        <% end %>
+    <% end %>
+    <br>
+    <br>
+<% end %>
+
+<br>
+<%= link_to  "Create new question", create_path %>

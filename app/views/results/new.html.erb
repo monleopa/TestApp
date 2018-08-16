@@ -1,0 +1,25 @@
+<%= form_for @result do |f| %>
+  <h2> Contest of <%= @lesson.name %> </h2>
+  <% number_of_ques = 0%> 
+
+  <% @questions.each do |question|  %>
+    <%= f.label question.id do %>
+
+      <h4>
+        <%= number_of_ques = number_of_ques + 1 %>.
+        <%= question.word %>:
+      </h4>
+
+      <% question.answers.each do |answer| %>
+        <%= f.radio_button :answer_id, answer.mean,
+          value: answer.id, id: number_of_ques %> <%= answer.mean %>
+      <% end %>
+
+    <% end %>
+    <br><br>
+  <% end %>
+
+  <%= f.submit "Finish"%>
+  
+<% end %>
+  

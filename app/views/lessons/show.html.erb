@@ -1,0 +1,14 @@
+<h3><%= @lesson.name %></h3>
+<% @questions.each do |question|  %>
+    <%= question.word %>
+    <% question.answers.each do |answer| %>
+        <% if (answer.correct == true) %>
+            <%= answer.mean %>
+        <% end %>
+    <% end %>
+    <br>
+    <br>
+<% end %>
+<br>
+<%= link_to "Create Lesson", createlesson_path %>
+<%= link_to "Start Test", testlesson_path(lesson_id: @lesson.id) %>

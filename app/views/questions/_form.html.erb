@@ -1,0 +1,20 @@
+<%= form_for(@question) do |f| %>
+  <div>
+    <%= f.label "Question:" %>
+    <%= f.text_field :word %>
+  </div>
+
+  <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: true %>
+
+  <%= f.fields_for :answers do |ff| %>
+    <div>
+      <%= ff.text_field :mean %>
+      <%= ff.check_box :correct%>
+      <%= ff.label "Correct"%>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

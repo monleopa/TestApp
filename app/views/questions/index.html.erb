@@ -1,0 +1,10 @@
+<% @questions.each do |question|  %>
+    <%= question.word %>
+    <% question.answers.each do |answer| %>
+        <% if (answer.correct == true) %>
+            <%= answer.mean %>
+        <% end %>
+    <% end %>
+    <br>
+    <br>
+<% end %>
